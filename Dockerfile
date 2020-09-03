@@ -6,8 +6,7 @@ RUN set -ex \
         && apk add --no-cache --virtual build-dependencies \
             build-base \
             git \
-        && go get -ldflags "-extldflags -static" github.com/pressly/goose/cmd/goose \
-        && apk del build-dependencies
+        && GO111MODULE=on go get -ldflags "-extldflags -static" github.com/pressly/goose/cmd/goose@v2.6.0
         
         
 FROM scratch
